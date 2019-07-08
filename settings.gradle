@@ -1,0 +1,4 @@
+rootProject.name = 'diderot'
+
+include ':chatlantis'
+project(':chatlantis').projectDir = new File('../chatlantis')

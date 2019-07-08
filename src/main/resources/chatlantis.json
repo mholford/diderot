@@ -1,0 +1,36 @@
+{
+  "bots": [
+    {
+      "name": "diderot",
+      "actions": [
+        {
+          "name": "solrQuery",
+          "cls": "org.mholford.diderot.action.SolrQueryAction",
+          "props": {
+            "solrAddress": "http://localhost:8983/solr/wikipedia"
+          }
+        }
+      ],
+      "intents": [
+        {
+          "name": "answerQuestion",
+          "successActions": [
+            "solrQuery"
+          ],
+          "objectSlots": ["/query"]
+        }
+      ],
+      "lookup": {
+        "props": {
+          "generator": "org.mholford.diderot.LUTGen",
+          "dict": "diderot-gen-LUT.csv"
+        }
+      },
+      "workflows": [
+        {
+          "name": "default"
+        }
+      ]
+    }
+  ]
+}
